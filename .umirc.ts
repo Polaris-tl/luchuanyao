@@ -5,7 +5,8 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', component: '@/pages/index' },
+    { path: '/', exact: true, component: '@/pages/index' },
+    { path: '/main', exact: false, component: '@/pages/index' },
   ],
   fastRefresh: {},
 });

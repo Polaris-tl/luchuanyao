@@ -1,18 +1,42 @@
+@import '../../common/theme.less';
 .footer{
-      background: #001529;
+    background: @nav;
     .box{
       display: flex;
       width: 1200px;
       margin: auto;
-      font-weight: bold;
-      ul, li{
+      justify-content: space-between;
+      border-bottom: 1px solid @main;
+      padding-top: 40px;
+      li{
         list-style: none;
+        margin-bottom: 15px;
+      }
+      ul{
         margin: 0;
         padding: 0;
+        margin-bottom: 30px;
+      }
+      .list{
+        .title{
+          color: @main;
+          font-weight: bold;
+          margin-bottom: 30px;
+        }
+        .item{
+          color: #fff;
+          font-size: 12px;
+          margin-top: 15px;
+        }
       }
     }
-    .logo{
-      width: 90px;
+    .copyright{
+      width: 1200px;
+      margin: 0 auto;
       color: #fff;
+      padding: 18px 0;
+      span{
+        margin-right: 31px;
+      }
     }
 }
