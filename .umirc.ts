@@ -9,4 +9,5 @@ export default defineConfig({
     { path: '/main', exact: false, component: '@/pages/index' },
   ],
   fastRefresh: {},
+  cssModulesTypescriptLoader: {},
 });
