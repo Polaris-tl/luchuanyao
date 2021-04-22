@@ -18,3 +18,6 @@
 /src/.umi-production
 /src/.umi-test
 /.env.local
+
+#less.d.ts 该文件为自动生成，不需要提交
+*.less.d.ts
