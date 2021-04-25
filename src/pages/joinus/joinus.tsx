@@ -1,3 +1,4 @@
+import Editor from '@/components/editor'
 import st from './joinus.less'
 import img1 from '@/static/imgs/banner_resolution.jpg'
 import like from '@/static/imgs/like.png'
@@ -42,6 +43,7 @@ export default function NewsDetail() {
             <p>橹船摇故事/</p>
             <p className={st.info}>发布:2020-12-12 10:12  评论:5  阅读:10</p>
           </div>
+          <Editor />
           <div className={st.like}>
             <img src={like} alt=""/>
             <p>555</p>

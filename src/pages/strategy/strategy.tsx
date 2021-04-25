@@ -1,50 +1,51 @@
 import st from './strategy.less'
 import img1 from '@/static/imgs/banner_resolution.jpg'
-import like from '@/static/imgs/like.png'
+import img2 from '@/static/imgs/banner_product.jpg'
+import Banner from '@/components/banner/banner'
 export default function NewsDetail() {
   return(
     <div>
-      <div className={st.detail}>
-        <div className={st.left}>
-          <div className={st.card1}>
-            <div className={st.box1}>
-              <div>
-                <img className={st.avator} src={img1} alt=""/>
-              </div>
-              <div>
-                <p className={st.name}>橹船摇小秘</p>
-                <p>单位： 重庆市橹船摇科技有限公司</p>
-              </div>
-            </div>
-            <div className={st.box2}>
-              <span>发布：5</span>
-              <span>阅读：5</span>
-              <span>关注：5</span>
-              <span>回复：5</span>
-            </div>
+      <Banner imgUrl={[img1, img1,]}/>
+      <div>
+        <div className={st.wrapper}>
+          <div className={st.titleBox}>
+            <p className={st.title}>战略标题1</p>
+            <img src={img2} alt=""/>
           </div>
-          <div className={st.card2}>
-            <div className={st.imgBox}>
-              <img src={img1} alt=""/>
-            </div>
-            <div>
-              <p className={st.title}>科创老兵的"重庆创业梦"——记鞍山市所所所所所少</p>
-              <div className={st.info}>
-                <p>发布： 2020-12-12</p>
-                <p>评论：3 阅读： 225</p>
-              </div>
-            </div>
+          <div className={st.content}>
+            <p>
+              支持的插件的确丰富，可定制型也的确强，但并不是特别强的优势。我需要的插件，其他浏览器上也都能装，主要是 油猴子、LastPass、Adb等。然发布了几次更新，都说速度有了提升，但从个人使用的直觉上来看，还是比不上Safari和Chrome
+另：Alfred对于收藏夹的搜索，只能是Safari和Chrome但并不是特别强的优势。我需要的插件，其他浏览器上也都能装，主要是 油猴子、LastPass、Adb等。然发布了几次更新，都说速度有了提升，但从个人使用的直觉上来看，还是比不上Safari和Chrome
+另：Alfred对于收藏夹的搜索，只能是Safari和Chrome
+            </p>
           </div>
         </div>
-        <div className={st.right}>
-          <p className={st.title}>科创老兵的"重庆创业梦"——记鞍山市所所所所所少</p>
-          <div className={st.infoBox}>
-            <p>橹船摇故事/</p>
-            <p className={st.info}>发布:2020-12-12 10:12  评论:5  阅读:10</p>
+
+        <div className={st.wrapper}>
+          <div className={st.titleBox}>
+            <p className={st.title}>战略标题1</p>
+            <img src={img2} alt=""/>
           </div>
-          <div className={st.like}>
-            <img src={like} alt=""/>
-            <p>555</p>
+          <div className={st.content}>
+            <p>
+              支持的插件的确丰富，可定制型也的确强，但并不是特别强的优势。我需要的插件，其他浏览器上也都能装，主要是 油猴子、LastPass、Adb等。然发布了几次更新，都说速度有了提升，但从个人使用的直觉上来看，还是比不上Safari和Chrome
+另：Alfred对于收藏夹的搜索，只能是Safari和Chrome但并不是特别强的优势。我需要的插件，其他浏览器上也都能装，主要是 油猴子、LastPass、Adb等。然发布了几次更新，都说速度有了提升，但从个人使用的直觉上来看，还是比不上Safari和Chrome
+另：Alfred对于收藏夹的搜索，只能是Safari和Chrome
+            </p>
+          </div>
+        </div>
+
+        <div className={st.wrapper}>
+          <div className={st.titleBox}>
+            <p className={st.title}>战略标题1</p>
+            <img src={img2} alt=""/>
+          </div>
+          <div className={st.content}>
+            <p>
+              支持的插件的确丰富，可定制型也的确强，但并不是特别强的优势。我需要的插件，其他浏览器上也都能装，主要是 油猴子、LastPass、Adb等。然发布了几次更新，都说速度有了提升，但从个人使用的直觉上来看，还是比不上Safari和Chrome
+另：Alfred对于收藏夹的搜索，只能是Safari和Chrome但并不是特别强的优势。我需要的插件，其他浏览器上也都能装，主要是 油猴子、LastPass、Adb等。然发布了几次更新，都说速度有了提升，但从个人使用的直觉上来看，还是比不上Safari和Chrome
+另：Alfred对于收藏夹的搜索，只能是Safari和Chrome
+            </p>
           </div>
         </div>
       </div>
