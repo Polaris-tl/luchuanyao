@@ -15,7 +15,7 @@ interface IProps {
 const Banner: React.FC<IProps> = (props) => {
   const { imgUrl } = props
   return(
-    <div>
+    <div style={{zIndex: 2, position: 'relative', top: '-46px'}}>
       <Carousel autoplay>
         {
           Array.isArray(imgUrl) ? imgUrl.map((url, idx) => {

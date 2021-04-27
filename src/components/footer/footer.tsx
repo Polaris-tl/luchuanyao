@@ -53,7 +53,7 @@ const Header = () => {
         <span>重庆摇橹船科技有限公司</span>
         <span>版权所有</span>
         <span>渝ICP备2020011637号</span>
-        <span>重庆市两江新区黄山大道中段渝兴广场扩展D4栋15F</span>
+        <span>重庆市渝北区杨柳北路6号15层1-4号</span>
         <span>TEL:8623-68686688</span>
       </div>
     </div>

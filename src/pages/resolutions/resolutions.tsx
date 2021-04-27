@@ -1,3 +1,5 @@
+import {useRef} from 'react'
+import { Input, Button } from 'antd'
 import Banner from '@/components/banner/banner'
 import st from './resolutions.less'
 import img1 from '@/static/imgs/banner_product.jpg'
@@ -46,6 +48,19 @@ const renderBox: React.FC<ICases> = (props) => {
 }
 
 export default function Cases() {
+  const formDiv = useRef<HTMLFormElement | null>(null)
+  const formSubmit = () => {
+    if(!formDiv.current) return
+    const res = {
+      username: formDiv.current.username.value,
+      tel: formDiv.current.tel.value,
+      address: formDiv.current.address.value,
+      size: formDiv.current.size.value,
+      enterprizeName: formDiv.current.enterprizeName.value,
+      content: formDiv.current.content.value,
+    }
+    console.log(res)
+  }
   return(
     <div>
       <Banner imgUrl={[img1,img2,img3]}/>
@@ -54,6 +69,41 @@ export default function Cases() {
           data.map(item => renderBox(item))
         }
       </div>
+      <form className={st.form} ref={(refs) => formDiv.current = refs}>
+        <div className={st.fullWidth}>
+          <div>
+            <p>姓名</p>
+            <Input name='username'/>
+          </div>
+          <div>
+            <p>联系电话</p>
+            <Input name='tel'/>
+          </div>
+          <div>
+            <p>邮件地址</p>
+            <Input name='address'/>
+          </div>
+        </div>
+        <div className={st.fullWidth}>
+          <div>
+            <p>公司规模</p>
+            <Input name='size'/>
+          </div>
+          <div style={{flex: 1}}>
+            <p>企业名称</p>
+            <Input name='enterprizeName'/>
+          </div>
+        </div>
+        <div className={st.fullWidth} style={{width: '100%'}}>
+          <div style={{width: '100%'}}>
+            <p>咨询内容</p>
+            <Input.TextArea style={{minHeight: '100px'}} name='content'/>
+          </div>
+        </div>
+        <div style={{    display: 'flex', justifyContent: 'flex-end'}}>
+          <Button type='primary' onClick={formSubmit}>提交</Button>
+        </div>
+      </form>
     </div>
   )
 }

@@ -4,8 +4,7 @@
   margin: auto;
   font-family: 'Microsoft YaHei';
   .wrapper{
-    background: #bef7c2;
-    border: 1px solid #49fc4a;
+    background: #fff;
     margin: 120px 0;
     .top{
       display: flex;
@@ -28,6 +27,28 @@
         line-height: 34px;
         text-align: justify;
         margin-top: 28px;
+      }
+    }
+  }
+}
+.form{
+  width: 1200px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  .fullWidth{
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+    > div{
+      width: calc( 33.33% - 30px);
+      margin-right: 45px;
+      &:last-child{
+        margin-right: 0px;
+      }
+      > p{
+        font-weight: bold;
+        font-size: 16px;
       }
     }
   }

@@ -36,7 +36,7 @@ interface ICases {
   content?: string,
   url: string
 }
-const renderBox: React.FC<ICases> = (props) => {
+const renderBox: React.FC<ICases> = (props, idx) => {
   const {title, subTitle, content, url} = props
   const renderTitle = (title?: string, subTitle?: string, content?: string) => {
     if(!title && !subTitle && !content){
@@ -53,7 +53,7 @@ const renderBox: React.FC<ICases> = (props) => {
     )
   } 
   return(
-    <div className={st.wrapper}>
+    <div className={st.wrapper} key={idx}>
       {
         renderTitle(title, subTitle, content)
       }
@@ -70,7 +70,7 @@ export default function Cases() {
       <Banner imgUrl={[img1,img2,img3]}/>
       <div className={st.cases}>
         {
-          data.map(item => renderBox(item))
+          data.map((item, idx) => renderBox(item, idx))
         }
       </div>
     </div>
