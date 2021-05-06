@@ -1,4 +1,4 @@
-import st from './banner.less'
+import st from './banner.less';
 import { Carousel } from 'antd';
 
 const contentStyle: any = {
@@ -9,28 +9,35 @@ const contentStyle: any = {
   background: '#364d79',
 };
 interface IProps {
-  imgUrl: string[] | string
+  imgUrl: string[] | string;
 }
 
 const Banner: React.FC<IProps> = (props) => {
-  const { imgUrl } = props
-  return(
-    <div style={{zIndex: 2, position: 'relative', top: '-46px'}}>
+  const { imgUrl } = props;
+  return (
+    <div style={{ position: 'relative', top: '-50px' }}>
       <Carousel autoplay>
-        {
-          Array.isArray(imgUrl) ? imgUrl.map((url, idx) => {
-            return(
+        {Array.isArray(imgUrl) ? (
+          imgUrl.map((url, idx) => {
+            return (
               <div key={url + idx}>
                 <div>
-                  <img src={url} alt=""/>
+                  {url.includes('.mp4') ? (
+                    <video src={url} autoPlay={true} loop={true} muted={true} />
+                  ) : (
+                    <img src={url} alt="" />
+                  )}
                 </div>
               </div>
-            )
-          }) :
-          <div><h3 style={contentStyle}>{imgUrl}</h3></div>
-        }
+            );
+          })
+        ) : (
+          <div>
+            <h3 style={contentStyle}>{imgUrl}</h3>
+          </div>
+        )}
       </Carousel>
     </div>
-  )
-}
-export default Banner
+  );
+};
+export default Banner;

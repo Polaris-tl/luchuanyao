@@ -1,9 +1,8 @@
 import { Menu } from 'antd';
-import { Link } from 'umi'
+import { Link } from 'umi';
 
-
-
-import st from './footer.less'
+import img1 from '@/static/imgs/other.png';
+import st from './footer.less';
 const Header = () => {
   return (
     <div className={st.footer}>
@@ -11,9 +10,12 @@ const Header = () => {
         <div className={st.list}>
           <div className={st.title}>产品技术</div>
           <ul className={st.item}>
-            <li>产品技术1</li>
-            <li>产品技术2</li>
-            <li>产品技术3</li>
+            <li>大动态广场探测及传感技术</li>
+            <li>哈特曼波前传感器</li>
+            <li>低照度摄像P1080机芯</li>
+            <li>科学级CCD相机</li>
+            <li>线阵CMOS相机</li>
+            <li>面阵CMOS相机</li>
           </ul>
         </div>
         <div className={st.list}>
@@ -47,16 +49,20 @@ const Header = () => {
             <li>加入我们</li>
           </ul>
         </div>
+        <div style={{ position: 'absolute', bottom: 0, right: 0 }}>
+          <img src={img1} alt="" />
+        </div>
       </div>
+
       <div className={st.copyright}>
-        <span>copyright@ 2020 THESEUS</span>
+        <span>copyright@ 2020</span>
         <span>重庆摇橹船科技有限公司</span>
         <span>版权所有</span>
         <span>渝ICP备2020011637号</span>
         <span>重庆市渝北区杨柳北路6号15层1-4号</span>
-        <span>TEL:8623-68686688</span>
+        <span>TEL:023-63015280</span>
       </div>
     </div>
-  )
-}
-export default Header
+  );
+};
+export default Header;

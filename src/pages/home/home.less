@@ -1,23 +1,24 @@
-.home{
+.home {
   font-family: 'Microsoft YaHei';
-  .div1{
+  .div1 {
     width: 1200px;
     display: flex;
     margin: auto;
     padding: 20px 10px;
     justify-content: space-between;
-    img{
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: all ease .4s;
+      transition: all ease 0.4s;
     }
-    .left, .right{
+    .left,
+    .right {
       width: calc(50% - 12px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      > div{
+      > div {
         width: 100%;
         height: 330px;
         overflow: hidden;
@@ -25,13 +26,14 @@
         box-sizing: border-box;
         border-radius: 5px;
         box-shadow: 0 0 6px 1px #ececec;
-        &:hover{
-          img{
-            transform: scale(1.05); 
+        &:hover {
+          img {
+            transform: scale(1.05);
           }
         }
       }
-      .textBox{
+      .textBox {
+        color: #fff;
         position: absolute;
         display: inline-block;
         bottom: 0px;
@@ -39,29 +41,29 @@
         width: 230px;
         right: 20px;
       }
-      .subTitle{
+      .subTitle {
         margin-bottom: 4px;
         line-height: 26px;
       }
-      .title{    
+      .title {
         font-size: 32px;
         margin-bottom: 23px;
       }
     }
-    .right{
+    .right {
       width: 50%;
       overflow: hidden;
-      >div{
+      > div {
         height: 673px;
       }
     }
   }
-  .div2{
+  .div2 {
     width: 1200px;
     display: flex;
     margin: auto;
     padding: 20px 10px 50px 10px;
-    img{
+    img {
       object-fit: cover;
       width: 100%;
     }

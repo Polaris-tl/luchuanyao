@@ -1,48 +1,46 @@
 @import '../../common/theme.less';
 @nav: #22334a;
-.header{
-    background: @nav-op;
+.header {
+  background: #22334aa6;
+  position: relative;
+  z-index: 10;
+  .box {
+    display: flex;
+    width: 1200px;
+    margin: auto;
+    // font-weight: bold;
     position: relative;
-    z-index: 10;
-    .box{
-      display: flex;
-      width: 1200px;
-      margin: auto;
-      // font-weight: bold;
-      position: relative;
-    }
-    .logo{
-      position: absolute;
-      top: 0;
-      left: -109px;
-      height: 80%;
-      width: 169px;
-      background: url('../../static/imgs/logo.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      bottom: 0;
-      margin: auto;
-    }
-    :global(.ant-menu-dark){
-      background-color: transparent;
-    }
-    :global(.ant-menu-item a){
-      color: #fff;
-    }
-    :global(.ant-menu.ant-menu-dark .ant-menu-item-selected){
-      background-color: transparent;
-    }
-    :global(.ant-menu.ant-menu-dark .ant-menu-item-selected a){
-      color: @main;
-    }
-    :global(.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover){
-      background-color: transparent;
-    }
-    :global(.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover a){
-      color: @main;
-    }
-    :global(.ant-menu-dark.ant-menu-horizontal > .ant-menu-item){
-      padding: 0 35px;
-    }
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    left: -159px;
+    height: 100%;
+    width: 159px;
+    background: url('../../static/imgs/logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  :global(.ant-menu-dark) {
+    background: none;
+  }
+  :global(.ant-menu-item a) {
+    color: #fff;
+  }
+  :global(.ant-menu.ant-menu-dark .ant-menu-item-selected) {
+    background: none;
+  }
+  :global(.ant-menu.ant-menu-dark .ant-menu-item-selected a) {
+    color: @main;
+  }
+  :global(.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover) {
+    background: none;
+  }
+  :global(.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover a) {
+    color: @main;
+  }
+  :global(.ant-menu-dark.ant-menu-horizontal > .ant-menu-item) {
+    padding: 0 35px;
+  }
 }

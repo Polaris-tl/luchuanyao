@@ -1,43 +1,55 @@
-import Banner from '@/components/banner/banner'
-import st from './home.less'
-import img1 from '@/static/imgs/banner_product.jpg'
-import img2 from '@/static/imgs/banner_case.jpg'
-import img3 from '@/static/imgs/banner_resolution.jpg'
-import img4 from '@/static/imgs/main_bottom.png'
+import Banner from '@/components/banner/banner';
+import st from './home.less';
+import video1 from '@/static/videos/shouye.mp4';
+import img1 from '@/static/imgs/shouye01.jpg';
+import img2 from '@/static/imgs/shouye02.jpg';
+import img3 from '@/static/imgs/shouye03.jpg';
+import img4 from '@/static/imgs/main_bottom.png';
 
 export default function Home() {
   return (
     <div className={st.home}>
-      <Banner imgUrl={[img1,img2,img3]}/>
+      <Banner imgUrl={[video1]} />
       <div className={st.div1}>
         <div className={st.left}>
           <div>
-            <img src={img1} alt=""/>
+            <img src={img1} alt="" />
             <div className={st.textBox}>
-              <p className={st.subTitle}>检测智能相机系统，已科学级工业相机最高代表——探月工程"嫦娥"相机为技术之母</p>
-              <p className={st.title}>工业智检</p>
+              {/* <p className={st.subTitle}>
+                检测智能相机系统，已科学级工业相机最高代表——探月工程"嫦娥"相机为技术之母
+              </p> */}
+              <p className={st.title}>质量提升</p>
             </div>
           </div>
           <div>
-            <img src={img1} alt=""/>
+            <img src={img2} alt="" />
             <div className={st.textBox}>
-              <p className={st.subTitle}>检测智能相机系统，已科学级工业相机最高代表——探月工程"嫦娥"相机为技术之母</p>
-              <p className={st.title}>工业智检</p>
+              {/* <p className={st.subTitle}>
+                检测智能相机系统，已科学级工业相机最高代表——探月工程"嫦娥"相机为技术之母
+              </p> */}
+              <p className={st.title}>安全守护</p>
             </div>
           </div>
         </div>
         <div className={st.right}>
           <div>
-            <img src={img1} alt=""/>
+            <img src={img3} alt="" />
             <div className={st.textBox}>
-              <p className={st.subTitle}>检测智能相机系统，已科学级工业相机最高代表——探月工程"嫦娥"相机为技术之母</p>
-              <p className={st.title}>工业智检</p>
+              {/* <p className={st.subTitle}>
+                检测智能相机系统，已科学级工业相机最高代表——探月工程"嫦娥"相机为技术之母
+              </p> */}
+              <p className={st.title} style={{ margin: '0px' }}>
+                光+AI
+              </p>
+              <p className={st.title} style={{ color: '#f59b42' }}>
+                行业数据大脑
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div className={st.div2}>
-        <img src={img4} alt=""/>
+        <img src={img4} alt="" />
       </div>
     </div>
   );
