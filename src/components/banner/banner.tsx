@@ -21,7 +21,7 @@ const Banner: React.FC<IProps> = (props) => {
           imgUrl.map((url, idx) => {
             return (
               <div key={url + idx}>
-                <div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
                   {url.includes('.mp4') ? (
                     <video src={url} autoPlay={true} loop={true} muted={true} />
                   ) : (
