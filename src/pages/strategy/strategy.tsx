@@ -13,14 +13,11 @@ export default function NewsDetail() {
               </div>
               <div>
                 <p className={st.name}>橹船摇小秘</p>
-                <p>单位： 重庆市橹船摇科技有限公司</p>
+                {/* <p>单位： 重庆市橹船摇科技有限公司</p> */}
               </div>
             </div>
             <div className={st.box2}>
-              <span>发布：5</span>
               <span>阅读：5</span>
-              <span>关注：5</span>
-              <span>回复：5</span>
             </div>
           </div>
           <div className={st.card2}>
@@ -33,7 +30,7 @@ export default function NewsDetail() {
               </p>
               <div className={st.info}>
                 <p>发布： 2020-12-12</p>
-                <p>评论：3 阅读： 225</p>
+                <p>阅读： 225</p>
               </div>
             </div>
           </div>

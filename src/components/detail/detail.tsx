@@ -20,7 +20,12 @@ const renderBox: React.FC<ICases> = (props) => {
           className={st.titleBox}
           style={content ? {} : { flexBasis: '100%' }}
         >
-          <p className={st.title}>{title}</p>
+          <p
+            className={st.title}
+            style={content ? { width: '380px' } : { width: '780px' }}
+          >
+            {title}
+          </p>
           <p className={st.subTitle} style={content ? {} : { width: '100%' }}>
             {subtitle}
           </p>
