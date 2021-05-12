@@ -18,7 +18,9 @@ export default function Cases() {
     })();
   }, []);
   if (location.pathname == '/main/help') {
-    document.querySelector('#submitForm')?.scrollIntoView();
+    setTimeout(() => {
+      document.querySelector('#submitForm')?.scrollIntoView();
+    }, 100);
   }
   return (
     <div>
