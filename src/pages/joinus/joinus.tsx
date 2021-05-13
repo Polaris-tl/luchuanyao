@@ -1,57 +1,108 @@
+import { useEffect, useState } from 'react';
+import { myGet, myPost } from '@/utils/request';
+import { Link } from 'umi';
+import moment from 'moment';
+import Banner from '@/components/banner/banner';
 import st from './joinus.less';
-import img1 from '@/static/imgs/banner_resolution.jpg';
-import like from '@/static/imgs/like.png';
-export default function NewsDetail() {
+import { Input } from 'antd';
+import img1 from '@/static/imgs/banner_news.png';
+interface INews {
+  abstractname: string;
+  subtitle: string;
+  content: string;
+  id: string;
+  img: string;
+  publishDate: string;
+  publishPerson: string;
+  title: string;
+  voteCount: string;
+  displayType: 1 | 0;
+  isTop: 0 | 1;
+}
+
+const renderBox: React.FC<INews> = (props) => {
+  const { title, publishDate, img, id, displayType, publishPerson } = props;
+  return (
+    <>
+      {displayType == 1 ? (
+        <Link to={`/main/joinus/${id}`} key={id}>
+          <div className={st.wrapper}>
+            <div className={st.imgBox}>
+              <img src={img} alt="" />
+            </div>
+            <div className={st.textBox}>
+              <p className={st.title}>{title}</p>
+              <p className={st.date}>{publishDate}</p>
+            </div>
+          </div>
+        </Link>
+      ) : (
+        <Link to={`/main/joinus/${id}`} key={id} style={{ width: '100%' }}>
+          <div className={st.line}>
+            <p className={st.p1}>
+              <span>{title}</span>
+            </p>
+            <p>
+              <span style={{ marginRight: '30px' }}>{publishPerson}</span>
+              <span>{moment(publishDate).format('yyyy-MM-DD')}</span>
+            </p>
+          </div>
+        </Link>
+      )}
+    </>
+  );
+};
+
+const afterSort = (origin: any) => {
+  origin.sort((a: any, b: any) => {
+    if (b.displayType != a.displayType) {
+      return b.displayType - a.displayType;
+    } else {
+      return b.isTop - a.isTop;
+    }
+  });
+};
+
+export default function News() {
+  const [news, setNews] = useState<INews[]>([]);
+  const searchNews = (value: string) => {
+    myPost('/JoinUs/selectByCondition', { value }).then((data) =>
+      setNews(data),
+    );
+  };
+  useEffect(() => {
+    (async () => {
+      const res = await myGet<INews[]>('/JoinUs/selectAll');
+      afterSort(res);
+      res && setNews(res);
+    })();
+  }, []);
   return (
     <div>
-      <div className={st.detail}>
-        <div className={st.left}>
-          <div className={st.card1}>
-            <div className={st.box1}>
-              <div>
-                <img className={st.avator} src={img1} alt="" />
-              </div>
-              <div>
-                <p className={st.name}>橹船摇小秘</p>
-                <p>单位： 重庆市橹船摇科技有限公司</p>
-              </div>
-            </div>
-            <div className={st.box2}>
-              <span>发布：5</span>
-              <span>阅读：5</span>
-              <span>关注：5</span>
-              <span>回复：5</span>
-            </div>
-          </div>
-          <div className={st.card2}>
-            <div className={st.imgBox}>
-              <img src={img1} alt="" />
-            </div>
-            <div>
-              <p className={st.title}>
-                科创老兵的"重庆创业梦"——记鞍山市所所所所所少
-              </p>
-              <div className={st.info}>
-                <p>发布： 2020-12-12</p>
-                <p>评论：3 阅读： 225</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={st.right}>
-          <p className={st.title}>
-            科创老兵的"重庆创业梦"——记鞍山市所所所所所少
-          </p>
-          <div className={st.infoBox}>
-            <p>橹船摇故事/</p>
-            <p className={st.info}>发布:2020-12-12 10:12 评论:5 阅读:10</p>
-          </div>
-          <div className={st.like}>
-            <img src={like} alt="" />
-            <p>555</p>
-          </div>
-        </div>
+      <Banner imgUrl={[img1]} />
+      <div
+        style={{
+          width: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          padding: '0 20px',
+          position: 'absolute',
+          top: '120px',
+          right: 0,
+          left: 0,
+        }}
+      >
+        <Input.Search
+          placeholder="请输入搜索内容"
+          style={{
+            width: '400px',
+          }}
+          onSearch={searchNews}
+          enterButton
+        />
       </div>
+      <div className={st.news}>{news.map((item) => renderBox(item))}</div>
     </div>
   );
 }

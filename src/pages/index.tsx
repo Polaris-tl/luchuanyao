@@ -9,6 +9,7 @@ import Products from './products/products';
 import Resolutions from './resolutions/resolutions';
 import Strategy from './strategy/strategy';
 import Joinus from './joinus/joinus';
+import JoinusDetial from './joinus/detail';
 import Help from './help/help';
 
 export default function IndexPage() {
@@ -24,7 +25,8 @@ export default function IndexPage() {
         <Route path="/main/news" exact component={News} />
         <Route path="/main/news/:id" component={NewsDetial} />
         <Route path="/main/strategy" component={Strategy} />
-        <Route path="/main/joinus" component={Joinus} />
+        <Route path="/main/joinus" exact component={Joinus} />
+        <Route path="/main/joinus/:id" component={JoinusDetial} />
         <Route path="/main/help" component={Cases} />
       </Switch>
       <Footer />

@@ -7,8 +7,8 @@ export default function Products() {
   const [banners, setBanners] = useState([]);
   useEffect(() => {
     (async () => {
-      const res = await myPost('ProductTech/selectByCondition', {
-        resourceId: 2,
+      const res = await myPost('ResourceImg/selectByCondition', {
+        resourceId: 1,
       });
       setBanners(res.map((item: any) => item.img));
     })();

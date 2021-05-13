@@ -1,7 +1,6 @@
 import st from './detail.less';
 import { useParams } from 'umi';
 import { useEffect, useState } from 'react';
-import Editor from '@/components/editor';
 import { myGet } from '@/utils/request';
 import img1 from '@/static/imgs/banner_resolution.jpg';
 import like from '@/static/imgs/like.png';
@@ -19,16 +18,16 @@ interface INews {
   displayType: 1 | 0;
   isTop: 0 | 1;
 }
-export default function NewsDetail() {
+export default function JoinsDetail() {
   const [news, setNews] = useState<INews>();
   const { id } = useParams<any>();
   useEffect(() => {
-    myGet('/NewsCenter/selectById', { id }).then((data) => {
+    myGet('/JoinUs/selectById', { id }).then((data) => {
       setNews(data);
     });
   }, []);
   const onLikeArticle = () => {
-    myGet('/NewsCenter/likeArticle', { id }).then((data) => {});
+    myGet('/JoinUs/likeArticle', { id }).then((data) => {});
   };
   return (
     <div>
@@ -68,9 +67,10 @@ export default function NewsDetail() {
               发布:{news?.publishDate} 阅读:{news?.voteCount || 0}
             </p>
           </div>
-          <div style={{ margin: '10px 20px' }}>
-            <Editor initValue={news?.content || ''} />
-          </div>
+          <div
+            dangerouslySetInnerHTML={{ __html: news?.content || '' }}
+            style={{ margin: '10px 20px' }}
+          ></div>
           <div className={st.like} onClick={onLikeArticle}>
             <img src={like} alt="" />
             <p>{news?.like || 0}</p>

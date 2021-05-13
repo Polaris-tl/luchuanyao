@@ -1,67 +1,68 @@
 @import '../../common/theme.less';
-.detail{
+.detail {
   width: 1200px;
   margin: 30px auto 50px auto;
   display: flex;
-  img{
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  p{
+  p {
     margin-bottom: 0;
   }
-  .left{
-    width: 415px;
+  .left {
+    width: 270px;
     margin-right: 10px;
-    .card1{
+    flex-shrink: 0;
+    .card1 {
       padding: 12px;
       background: #fff;
       margin-bottom: 20px;
       box-shadow: 0 0 5px 0px #dcdcdc;
       font-size: 13px;
-      .box1{
+      .box1 {
         display: flex;
         margin-bottom: 20px;
-        .avator{
+        .avator {
           width: 50px;
           height: 50px;
           border-radius: 50%;
           margin-right: 10px;
         }
-        .name{
+        .name {
           font-weight: bold;
           margin-bottom: 4px;
           font-size: 17px;
-          font-family: "Microsoft YaHei";
+          font-family: 'Microsoft YaHei';
           margin-bottom: 4px;
         }
       }
-      .box2{
-        span{
+      .box2 {
+        span {
           margin-right: 20px;
-          &:last-child{
+          &:last-child {
             margin-right: 0;
           }
         }
       }
     }
-    .card2{
+    .card2 {
       padding: 12px;
       background: #fff;
       margin-bottom: 20px;
       box-shadow: 0 0 5px 0px #dcdcdc;
       font-size: 13px;
-      .imgBox{
+      .imgBox {
         width: 100%;
         height: 120px;
         margin-bottom: 13px;
       }
-      .title{
+      .title {
         font-weight: bold;
         margin-bottom: 15px;
       }
-      .info{
+      .info {
         display: flex;
         justify-content: space-between;
         color: #797979;
@@ -69,25 +70,25 @@
       }
     }
   }
-  .right{
+  .right {
     background: #fff;
     width: 100%;
     position: relative;
     padding-bottom: 130px;
-    .title{
+    .title {
       font-weight: bold;
       font-size: 18px;
       border-bottom: 1px solid #c7c7c7;
       text-align: center;
       line-height: 50px;
     }
-    .infoBox{
+    .infoBox {
       display: flex;
       justify-content: space-between;
       color: #797979;
       margin: 10px 20px;
     }
-    .like{
+    .like {
       position: absolute;
       background: #f69c44;
       bottom: 29px;
@@ -103,11 +104,11 @@
       flex-direction: column;
       color: #fff;
       cursor: pointer;
-      img{
+      img {
         width: 25px;
         height: 25px;
       }
-      p{
+      p {
         text-align: center;
       }
     }

@@ -1,59 +1,82 @@
+import { useEffect, useState } from 'react';
+import { myGet, myPost } from '@/utils/request';
 import { Link } from 'umi';
+import moment from 'moment';
 import Banner from '@/components/banner/banner';
 import st from './news.less';
 import { Input } from 'antd';
 import img1 from '@/static/imgs/banner_news.png';
-
-import img4 from '@/static/imgs/cases_1.jpg';
-import img5 from '@/static/imgs/cases_2.jpg';
-import img6 from '@/static/imgs/cases_3.jpg';
-
-const data = [
-  {
-    title: '标题1',
-    createdAt: '2020-12-14',
-    url: img4,
-    id: '1',
-  },
-  {
-    title: '标题2',
-    createdAt: '2020-12-14',
-    url: img5,
-    id: '2',
-  },
-  {
-    title: '标题3',
-    createdAt: '2020-12-14',
-    url: img6,
-    id: '3',
-  },
-];
-
 interface INews {
-  title: string;
-  createdAt: string;
-  url: string;
+  abstractname: string;
+  subtitle: string;
+  content: string;
   id: string;
+  img: string;
+  publishDate: string;
+  publishPerson: string;
+  title: string;
+  voteCount: string;
+  displayType: 1 | 0;
+  isTop: 0 | 1;
 }
 
 const renderBox: React.FC<INews> = (props) => {
-  const { title, createdAt, url, id } = props;
+  const { title, publishDate, img, id, displayType, publishPerson } = props;
   return (
-    <Link to={`/main/news/${id}`}>
-      <div className={st.wrapper}>
-        <div className={st.imgBox}>
-          <img src={url} alt="" />
-        </div>
-        <div className={st.textBox}>
-          <p className={st.title}>{title}</p>
-          <p className={st.date}>{createdAt}</p>
-        </div>
-      </div>
-    </Link>
+    <>
+      {displayType == 1 ? (
+        <Link to={`/main/news/${id}`} key={id}>
+          <div className={st.wrapper}>
+            <div className={st.imgBox}>
+              <img src={img} alt="" />
+            </div>
+            <div className={st.textBox}>
+              <p className={st.title}>{title}</p>
+              <p className={st.date}>{publishDate}</p>
+            </div>
+          </div>
+        </Link>
+      ) : (
+        <Link to={`/main/news/${id}`} key={id} style={{ width: '100%' }}>
+          <div className={st.line}>
+            <p className={st.p1}>
+              <span>{title}</span>
+            </p>
+            <p>
+              <span style={{ marginRight: '30px' }}>{publishPerson}</span>
+              <span>{moment(publishDate).format('yyyy-MM-DD')}</span>
+            </p>
+          </div>
+        </Link>
+      )}
+    </>
   );
 };
 
+const afterSort = (origin: any) => {
+  origin.sort((a: any, b: any) => {
+    if (b.displayType != a.displayType) {
+      return b.displayType - a.displayType;
+    } else {
+      return b.isTop - a.isTop;
+    }
+  });
+};
+
 export default function News() {
+  const [news, setNews] = useState<INews[]>([]);
+  const searchNews = (value: string) => {
+    myPost('/NewsCenter/selectByCondition', { value }).then((data) =>
+      setNews(data),
+    );
+  };
+  useEffect(() => {
+    (async () => {
+      const res = await myGet<INews[]>('/NewsCenter/selectAll');
+      afterSort(res);
+      res && setNews(res);
+    })();
+  }, []);
   return (
     <div>
       <Banner imgUrl={[img1]} />
@@ -75,11 +98,11 @@ export default function News() {
           style={{
             width: '400px',
           }}
-          onSearch={() => {}}
+          onSearch={searchNews}
           enterButton
         />
       </div>
-      <div className={st.news}>{data.map((item) => renderBox(item))}</div>
+      <div className={st.news}>{news.map((item) => renderBox(item))}</div>
     </div>
   );
 }
