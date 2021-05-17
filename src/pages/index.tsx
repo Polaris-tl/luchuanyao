@@ -27,7 +27,7 @@ export default function IndexPage() {
         <Route path="/main/strategy" component={Strategy} />
         <Route path="/main/joinus" exact component={Joinus} />
         <Route path="/main/joinus/:id" component={JoinusDetial} />
-        <Route path="/main/help" component={Cases} />
+        <Route path="/main/help" component={Resolutions} />
       </Switch>
       <Footer />
     </div>

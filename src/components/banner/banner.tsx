@@ -25,7 +25,7 @@ const Banner: React.FC<IProps> = (props) => {
                   {url.includes('.mp4') ? (
                     <video src={url} autoPlay={true} loop={true} muted={true} />
                   ) : (
-                    <img src={url} alt="" />
+                    <img src={url} alt="" style={{ width: '100%' }} />
                   )}
                 </div>
               </div>

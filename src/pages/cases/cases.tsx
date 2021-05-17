@@ -17,11 +17,11 @@ export default function Cases() {
       setBanners(res.map((item: any) => item.img));
     })();
   }, []);
-  if (location.pathname == '/main/help') {
-    setTimeout(() => {
-      document.querySelector('#submitForm')?.scrollIntoView();
-    }, 100);
-  }
+  // if (location.pathname == '/main/help') {
+  //   setTimeout(() => {
+  //     document.querySelector('#submitForm')?.scrollIntoView();
+  //   }, 100);
+  // }
   const onSubmit = () => {
     const form: any = document.querySelector('#submitForm');
     const data = {
@@ -48,7 +48,7 @@ export default function Cases() {
     <div>
       <Banner imgUrl={banners} />
       <Detail url="ServiceCase/selectAll" />
-      <div className={st.form}>
+      {/* <div className={st.form}>
         <form id="submitForm" action="">
           <div className={st.div1}>
             <div>
@@ -86,7 +86,7 @@ export default function Cases() {
             提交
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

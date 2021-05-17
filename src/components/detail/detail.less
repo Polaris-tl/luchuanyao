@@ -17,6 +17,7 @@
       display: flex;
       font-size: 16px;
       padding: 13px;
+      justify-content: space-between;
       .titleBox {
         color: @nav;
         width: 300px;
@@ -24,20 +25,22 @@
         flex-shrink: 0;
         flex-basis: 560px;
         .title {
-          font-size: 28px;
+          font-size: 36px;
           margin-bottom: 0;
           .ellipse();
         }
         .subTitle {
-          width: 300px;
+          margin-top: 10px;
           font-weight: 300;
           .mul_ellipse(2);
         }
       }
       .content {
+        width: 560px;
         font-weight: 300;
         line-height: 34px;
         text-align: justify;
+        .mul_ellipse(5);
       }
     }
     .imgBox {

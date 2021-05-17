@@ -1,7 +1,6 @@
-import { Menu } from 'antd';
-import { Link } from 'umi';
-
 import img1 from '@/static/imgs/other.png';
+import img2 from '@/static/imgs/ewm.jpg';
+import img3 from '@/static/imgs/other_active.png';
 import st from './footer.less';
 const Header = () => {
   return (
@@ -49,8 +48,15 @@ const Header = () => {
             <li>加入我们</li>
           </ul>
         </div>
-        <div style={{ position: 'absolute', bottom: 0, right: 0 }}>
-          <img src={img1} alt="" />
+        <div
+          className={st.imgBox}
+          style={{ position: 'absolute', bottom: 0, right: 0 }}
+        >
+          <img className={st.img1} src={img1} alt="" />
+          <img className={st.img3} src={img3} alt="" />
+          <div className={st.img2}>
+            <img src={img2} />
+          </div>
         </div>
       </div>
 

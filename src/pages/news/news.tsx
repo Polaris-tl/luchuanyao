@@ -21,7 +21,7 @@ interface INews {
 }
 
 const renderBox: React.FC<INews> = (props) => {
-  const { title, publishDate, img, id, displayType, publishPerson } = props;
+  const { title, publishDate, img, id, displayType, abstractname } = props;
   return (
     <>
       {displayType == 1 ? (
@@ -32,7 +32,13 @@ const renderBox: React.FC<INews> = (props) => {
             </div>
             <div className={st.textBox}>
               <p className={st.title}>{title}</p>
-              <p className={st.date}>{publishDate}</p>
+              <p
+                className={st.date}
+                style={{ display: 'flex', justifyContent: 'space-between' }}
+              >
+                <span>{moment(publishDate).format('yyyy-MM-DD')}</span>
+                <span>{abstractname}</span>
+              </p>
             </div>
           </div>
         </Link>
@@ -43,7 +49,7 @@ const renderBox: React.FC<INews> = (props) => {
               <span>{title}</span>
             </p>
             <p>
-              <span style={{ marginRight: '30px' }}>{publishPerson}</span>
+              <span style={{ marginRight: '30px' }}>{abstractname}</span>
               <span>{moment(publishDate).format('yyyy-MM-DD')}</span>
             </p>
           </div>
@@ -66,7 +72,7 @@ const afterSort = (origin: any) => {
 export default function News() {
   const [news, setNews] = useState<INews[]>([]);
   const searchNews = (value: string) => {
-    myPost('/NewsCenter/selectByCondition', { value }).then((data) =>
+    myPost('/NewsCenter/selectByCondition', { title: value }).then((data) =>
       setNews(data),
     );
   };

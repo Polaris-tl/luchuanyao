@@ -1,7 +1,7 @@
 import st from './detail.less';
 import { useParams } from 'umi';
 import { useEffect, useState } from 'react';
-import { myGet } from '@/utils/request';
+import { myGet, myPost } from '@/utils/request';
 import img1 from '@/static/imgs/banner_resolution.jpg';
 import like from '@/static/imgs/like.png';
 interface INews {
@@ -14,7 +14,7 @@ interface INews {
   publishPerson: string;
   title: string;
   voteCount: string;
-  like: number;
+  readCount: number;
   displayType: 1 | 0;
   isTop: 0 | 1;
 }
@@ -25,9 +25,10 @@ export default function JoinsDetail() {
     myGet('/JoinUs/selectById', { id }).then((data) => {
       setNews(data);
     });
+    myPost('/Anonymous/joinusRead', { id });
   }, []);
   const onLikeArticle = () => {
-    myGet('/JoinUs/likeArticle', { id }).then((data) => {});
+    myPost('/Anonymous/joinusVote', { id });
   };
   return (
     <div>
@@ -54,7 +55,7 @@ export default function JoinsDetail() {
               <p className={st.title}>{news?.title}</p>
               <div className={st.info}>
                 <p>发布： {news?.publishDate}</p>
-                <p>阅读： {news?.voteCount || 0}</p>
+                <p>阅读： {news?.readCount || 0}</p>
               </div>
             </div>
           </div>
@@ -62,9 +63,9 @@ export default function JoinsDetail() {
         <div className={st.right}>
           <p className={st.title}>{news?.title}</p>
           <div className={st.infoBox}>
-            <p>/橹船摇故事</p>
+            <p>{news?.abstractname}</p>
             <p className={st.info}>
-              发布:{news?.publishDate} 阅读:{news?.voteCount || 0}
+              发布:{news?.publishDate} 阅读:{news?.readCount || 0}
             </p>
           </div>
           <div
@@ -73,7 +74,7 @@ export default function JoinsDetail() {
           ></div>
           <div className={st.like} onClick={onLikeArticle}>
             <img src={like} alt="" />
-            <p>{news?.like || 0}</p>
+            <p>{news?.voteCount || 0}</p>
           </div>
         </div>
       </div>

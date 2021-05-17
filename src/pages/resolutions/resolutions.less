@@ -32,3 +32,53 @@
     }
   }
 }
+.form {
+  width: 1200px;
+  margin: 10px auto;
+  form > div {
+    display: flex;
+  }
+  p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .div1 {
+    justify-content: space-between;
+    > div {
+      width: 100%;
+      &:nth-child(2) {
+        margin: 0 30px;
+      }
+    }
+  }
+  .div2 {
+    justify-content: space-between;
+    margin: 30px 0;
+    > div {
+      width: 100%;
+      &:first-child {
+        width: 580px;
+        margin-right: 30px;
+      }
+    }
+  }
+  .div3 {
+    div {
+      width: 100%;
+    }
+  }
+  .div4 {
+    display: flex;
+    justify-content: flex-end;
+    .btn {
+      cursor: pointer;
+      background: #ffcc33;
+      padding: 5px 40px;
+      margin: 18px 0;
+      border-radius: 5px;
+      color: #313131;
+      font-weight: bold;
+    }
+  }
+}
