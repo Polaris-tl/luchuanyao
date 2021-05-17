@@ -25,10 +25,10 @@ export default function JoinsDetail() {
     myGet('/JoinUs/selectById', { id }).then((data) => {
       setNews(data);
     });
-    myPost('/Anonymous/joinusRead', { id });
+    myPost('/Anonymous/joinusRead', { joinusId: id });
   }, []);
   const onLikeArticle = () => {
-    myPost('/Anonymous/joinusVote', { id });
+    myPost('/Anonymous/joinusVote', { joinusId: id });
   };
   return (
     <div>

@@ -26,10 +26,10 @@ export default function NewsDetail() {
     myGet('/NewsCenter/selectById', { id }).then((data) => {
       setNews(data);
     });
-    myPost('/Anonymous/newsRead', { id });
+    myPost('/Anonymous/newsRead', { newsId: id });
   }, []);
   const onLikeArticle = () => {
-    myPost('/Anonymous/newsVote', { id });
+    myPost('/Anonymous/newsVote', { newsId: id });
   };
   return (
     <div>
