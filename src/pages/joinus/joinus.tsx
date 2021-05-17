@@ -72,7 +72,7 @@ const afterSort = (origin: any) => {
 export default function News() {
   const [news, setNews] = useState<INews[]>([]);
   const searchNews = (value: string) => {
-    myPost('/JoinUs/selectByCondition', { title: value }).then((data) =>
+    myPost('/JoinUs/selectByPagination', { title: value }).then((data) =>
       setNews(data),
     );
   };

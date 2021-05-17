@@ -72,7 +72,7 @@ const afterSort = (origin: any) => {
 export default function News() {
   const [news, setNews] = useState<INews[]>([]);
   const searchNews = (value: string) => {
-    myPost('/NewsCenter/selectByCondition', { title: value }).then((data) =>
+    myPost('/NewsCenter/selectByPagination', { title: value }).then((data) =>
       setNews(data),
     );
   };
