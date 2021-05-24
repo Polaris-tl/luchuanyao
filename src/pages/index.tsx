@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { myGet } from '@/utils/request';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 import { Switch, Route, Link } from 'umi';
@@ -10,24 +12,36 @@ import Resolutions from './resolutions/resolutions';
 import Strategy from './strategy/strategy';
 import Joinus from './joinus/joinus';
 import JoinusDetial from './joinus/detail';
-import Help from './help/help';
 
 export default function IndexPage() {
+  const [visitor, setVisitor] = useState<number[]>([]);
+  useEffect(() => {
+    myGet('/User/hasResourceFromUser', { id: '0' }).then((data) => {
+      setVisitor(data.map((item: any) => item.id));
+    });
+  }, []);
+  const withAuth = (component: any, id: number) => {
+    if (visitor.includes(id)) {
+      return component;
+    } else {
+      return null;
+    }
+  };
   return (
     <div style={{ backgroundColor: '#f5f7fa' }}>
       <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/mian" exact component={Home} />
-        <Route path="/main/products" component={Products} />
-        <Route path="/main/resolutions" component={Resolutions} />
-        <Route path="/main/cases" component={Cases} />
-        <Route path="/main/news" exact component={News} />
-        <Route path="/main/news/:id" component={NewsDetial} />
-        <Route path="/main/strategy" component={Strategy} />
-        <Route path="/main/joinus" exact component={Joinus} />
-        <Route path="/main/joinus/:id" component={JoinusDetial} />
-        <Route path="/main/help" component={Resolutions} />
+        <Route path="/" exact component={withAuth(Home, 8)} />
+        <Route path="/mian" exact component={withAuth(Home, 8)} />
+        <Route path="/main/products" component={withAuth(Products, 1)} />
+        <Route path="/main/resolutions" component={withAuth(Resolutions, 5)} />
+        <Route path="/main/cases" component={withAuth(Cases, 2)} />
+        <Route path="/main/news" exact component={withAuth(News, 3)} />
+        <Route path="/main/news/:id" component={withAuth(NewsDetial, 3)} />
+        <Route path="/main/strategy" component={withAuth(Strategy, 6)} />
+        <Route path="/main/joinus" exact component={withAuth(Joinus, 4)} />
+        <Route path="/main/joinus/:id" component={withAuth(JoinusDetial, 4)} />
+        <Route path="/main/help" component={withAuth(Resolutions, 5)} />
       </Switch>
       <Footer />
     </div>

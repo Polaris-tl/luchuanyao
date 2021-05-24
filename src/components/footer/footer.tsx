@@ -2,6 +2,7 @@ import img1 from '@/static/imgs/other.png';
 import img2 from '@/static/imgs/ewm.jpg';
 import img3 from '@/static/imgs/other_active.png';
 import st from './footer.less';
+import { Button } from 'antd';
 const Header = () => {
   return (
     <div className={st.footer}>
@@ -63,7 +64,15 @@ const Header = () => {
       <div className={st.copyright}>
         <div>
           <span>copyright@ 2020</span>
-          <span>重庆摇橹船科技有限公司</span>
+          <span>
+            <Button
+              style={{ color: '#fff' }}
+              type="link"
+              href="http://theseustech.cn:8099/login"
+            >
+              重庆摇橹船科技有限公司
+            </Button>
+          </span>
           <span>版权所有</span>
           <span>渝ICP备2020011637号</span>
         </div>

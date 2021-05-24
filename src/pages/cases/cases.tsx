@@ -48,45 +48,6 @@ export default function Cases() {
     <div>
       <Banner imgUrl={banners} />
       <Detail url="ServiceCase/selectAll" />
-      {/* <div className={st.form}>
-        <form id="submitForm" action="">
-          <div className={st.div1}>
-            <div>
-              <p>姓名</p>
-              <Input name="name" />
-            </div>
-            <div>
-              <p>联系电话</p>
-              <Input name="tel" />
-            </div>
-            <div>
-              <p>邮件地址</p>
-              <Input name="email" />
-            </div>
-          </div>
-          <div className={st.div2}>
-            <div>
-              <p>公司规模</p>
-              <Input name="scale" />
-            </div>
-            <div>
-              <p>企业名称</p>
-              <Input name="conpanyName" />
-            </div>
-          </div>
-          <div className={st.div3}>
-            <div>
-              <p>咨询内容</p>
-              <Input.TextArea name="content" />
-            </div>
-          </div>
-        </form>
-        <div className={st.div4}>
-          <div className={st.btn} onClick={onSubmit}>
-            提交
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

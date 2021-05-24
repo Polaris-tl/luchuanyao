@@ -29,6 +29,11 @@ export default function JoinsDetail() {
   }, []);
   const onLikeArticle = () => {
     myPost('/Anonymous/joinusVote', { joinusId: id });
+    const n = Number(news?.voteCount);
+    setNews({
+      ...news,
+      voteCount: n + 1,
+    });
   };
   return (
     <div>
