@@ -8,6 +8,8 @@ const mockData = [
   { name: '产品技术', url: '/main/products', id: 1 },
   { name: '解决方案', url: '/main/resolutions', id: 5 },
   { name: '服务案例', url: '/main/cases', id: 2 },
+  { name: '其他其一', url: '/main/other1', id: 9 },
+  { name: '其他其二', url: '/main/other2', id: 10 },
   { name: '新闻中心', url: '/main/news', id: 3 },
   { name: '品牌战略', url: '/main/strategy', id: 6 },
   { name: '加入我们', url: '/main/joinus', id: 4 },

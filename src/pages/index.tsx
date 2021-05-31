@@ -12,6 +12,8 @@ import Resolutions from './resolutions/resolutions';
 import Strategy from './strategy/strategy';
 import Joinus from './joinus/joinus';
 import JoinusDetial from './joinus/detail';
+import Other1 from './other1/products';
+import Other2 from './other2/products';
 
 export default function IndexPage() {
   const [visitor, setVisitor] = useState<number[]>([]);
@@ -42,6 +44,8 @@ export default function IndexPage() {
         <Route path="/main/joinus" exact component={withAuth(Joinus, 4)} />
         <Route path="/main/joinus/:id" component={withAuth(JoinusDetial, 4)} />
         <Route path="/main/help" component={withAuth(Resolutions, 5)} />
+        <Route path="/main/other1" component={withAuth(Other1, 9)} />
+        <Route path="/main/other2" component={withAuth(Other2, 10)} />
       </Switch>
       <Footer />
     </div>
