@@ -5,6 +5,7 @@ import Editor from '@/components/editor';
 import { myGet, myPost } from '@/utils/request';
 import img1 from '@/static/imgs/banner_resolution.jpg';
 import like from '@/static/imgs/like.png';
+import moment from 'moment';
 interface INews {
   abstractname: string;
   subtitle: string;
@@ -59,7 +60,12 @@ export default function NewsDetail() {
             <div>
               <p className={st.title}>{news?.title}</p>
               <div className={st.info}>
-                <p>发布： {news?.publishDate}</p>
+                <p>
+                  发布：{' '}
+                  {news?.publishDate
+                    ? moment(news.publishDate).format('yyyy-MM-DD')
+                    : ''}
+                </p>
                 <p>阅读： {news?.readCount || 0}</p>
               </div>
             </div>
@@ -70,7 +76,11 @@ export default function NewsDetail() {
           <div className={st.infoBox}>
             <p>{news?.abstractname}</p>
             <p className={st.info}>
-              发布:{news?.publishDate} 阅读:{news?.readCount || 0}
+              发布:
+              {news?.publishDate
+                ? moment(news.publishDate).format('yyyy-MM-DD')
+                : ''}{' '}
+              阅读:{news?.readCount || 0}
             </p>
           </div>
           <div style={{ margin: '10px 20px' }}>
