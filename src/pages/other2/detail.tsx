@@ -5,8 +5,8 @@ export default function NewsDetail() {
     <Detail2
       articleUrl="/NewsCenter/selectById"
       vodeUrl="/Anonymous/newsVote"
-      voteKey="joinusId"
-      resoureId="3"
+      voteKey="other2Id"
+      resoureId="10"
     />
   );
 }

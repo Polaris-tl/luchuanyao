@@ -64,14 +64,10 @@ const Header = () => {
       <div className={st.copyright}>
         <div>
           <span>copyright@ 2020</span>
-          <span>
-            <Button
-              style={{ color: '#fff' }}
-              type="link"
-              href="http://theseustech.cn:8099/login"
-            >
+          <span className={st.comName}>
+            <a href="http://theseustech.cn:8099/login">
               重庆摇橹船科技有限公司
-            </Button>
+            </a>
           </span>
           <span>版权所有</span>
           <span>渝ICP备2020011637号</span>

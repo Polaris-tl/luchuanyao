@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { myGet } from '@/utils/request';
+import { myGet, visitRecordAdd } from '@/utils/request';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
-import { Switch, Route, Link } from 'umi';
+import { Switch, Route } from 'umi';
 import Home from './home/home';
 import Cases from './cases/cases';
 import News from './news/news';
@@ -13,11 +13,12 @@ import Strategy from './strategy/strategy';
 import Joinus from './joinus/joinus';
 import JoinusDetial from './joinus/detail';
 import Other1 from './other1/products';
-import Other2 from './other2/products';
+import Other2 from './other2/news';
 
 export default function IndexPage() {
   const [visitor, setVisitor] = useState<number[]>([]);
   useEffect(() => {
+    visitRecordAdd('8');
     myGet('/User/hasResourceFromUser', { id: '0' }).then((data) => {
       setVisitor(data.map((item: any) => item.id));
     });

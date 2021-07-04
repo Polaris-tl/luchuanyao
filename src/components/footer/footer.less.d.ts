@@ -2,6 +2,7 @@
 // Please do not change this file!
 interface CssExports {
   box: string;
+  comName: string;
   copyright: string;
   footer: string;
   img1: string;

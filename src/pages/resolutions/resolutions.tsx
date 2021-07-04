@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { myPost } from '@/utils/request';
+import { myPost, visitRecordAdd } from '@/utils/request';
 import { useLocation } from 'umi';
 import { Input, message } from 'antd';
 import st from './resolutions.less';
@@ -10,6 +10,7 @@ export default function Resolutions() {
   const [banners, setBanners] = useState([]);
   const location = useLocation();
   useEffect(() => {
+    visitRecordAdd('5');
     (async () => {
       const res = await myPost('ResourceImg/selectByCondition', {
         resourceId: 5,

@@ -77,7 +77,7 @@ export default function News() {
     );
   };
   useEffect(() => {
-    visitRecordAdd('3');
+    visitRecordAdd('10');
     (async () => {
       const res = await myGet<INews[]>('/NewsCenter/selectAll');
       afterSort(res);

@@ -41,3 +41,7 @@ export const myPost: <T = any>(url: string, parameter: any) => Promise<T> = (
 ) => {
   return axios.post(url, parameter);
 };
+
+export const visitRecordAdd: (id: string) => Promise<any> = (id) => {
+  return axios.post('/VisitRecord/add', { resourceId: id });
+};

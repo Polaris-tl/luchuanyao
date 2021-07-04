@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'umi';
-import { myPost } from '@/utils/request';
+import { myPost, visitRecordAdd } from '@/utils/request';
 import { Input, message } from 'antd';
 import st from './cases.less';
 import Banner from '@/components/banner/banner';
@@ -10,6 +10,7 @@ export default function Cases() {
   const [banners, setBanners] = useState([]);
   const location = useLocation();
   useEffect(() => {
+    visitRecordAdd('2');
     (async () => {
       const res = await myPost('ResourceImg/selectByCondition', {
         resourceId: 2,

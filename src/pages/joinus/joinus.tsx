@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { myGet, myPost } from '@/utils/request';
+import { myGet, myPost, visitRecordAdd } from '@/utils/request';
 import { Link } from 'umi';
 import moment from 'moment';
 import Banner from '@/components/banner/banner';
@@ -77,6 +77,7 @@ export default function News() {
     );
   };
   useEffect(() => {
+    visitRecordAdd('4');
     (async () => {
       const res = await myGet<INews[]>('/JoinUs/selectAll');
       afterSort(res);
