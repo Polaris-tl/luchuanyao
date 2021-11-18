@@ -1,6 +1,6 @@
 import st from './detail.less';
 import { useParams } from 'umi';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Editor from '@/components/editor';
 import { myGet, myPost, visitRecordAdd } from '@/utils/request';
 import img1 from '@/static/imgs/banner_resolution.jpg';
@@ -28,6 +28,7 @@ interface IDetail {
 }
 export default function NewsDetail(props: IDetail) {
   const [news, setNews] = useState<INews>();
+  const flag = useRef(false);
   const { articleUrl, vodeUrl, voteKey, resoureId } = props;
   const { id } = useParams<any>();
   useEffect(() => {
@@ -37,7 +38,9 @@ export default function NewsDetail(props: IDetail) {
     });
   }, []);
   const onLikeArticle = (e: any) => {
+    if (flag.current) return;
     myPost(vodeUrl + `?${voteKey}=${id}`, { newsId: id });
+    flag.current = true;
     const n = Number(news?.voteCount);
     setNews({
       ...news,

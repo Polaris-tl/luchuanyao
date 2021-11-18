@@ -1,6 +1,7 @@
 import img1 from '@/static/imgs/other.png';
 import img2 from '@/static/imgs/ewm.jpg';
 import img3 from '@/static/imgs/other_active.png';
+import { Link } from 'umi';
 import st from './footer.less';
 import { Button } from 'antd';
 const Header = () => {
@@ -10,43 +11,111 @@ const Header = () => {
         <div className={st.list}>
           <div className={st.title}>产品技术</div>
           <ul className={st.item}>
-            <li>大动态广场探测及传感技术</li>
-            <li>哈特曼波前传感器</li>
-            <li>低照度摄像P1080机芯</li>
-            <li>科学级CCD相机</li>
-            <li>线阵CMOS相机</li>
-            <li>面阵CMOS相机</li>
+            <li>
+              <Link to="/main/products" style={{ color: '#fff' }}>
+                大动态广场探测及传感技术
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/products" style={{ color: '#fff' }}>
+                哈特曼波前传感器
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/products" style={{ color: '#fff' }}>
+                低照度摄像P1080机芯
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/products" style={{ color: '#fff' }}>
+                科学级CCD相机
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/products" style={{ color: '#fff' }}>
+                线阵CMOS相机
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/products" style={{ color: '#fff' }}>
+                面阵CMOS相机
+              </Link>
+            </li>
           </ul>
         </div>
         <div className={st.list}>
           <div className={st.title}>解决方案</div>
           <ul className={st.item}>
-            <li>行业应用1</li>
-            <li>行业应用2</li>
+            <li>
+              <Link to="/main/resolutions" style={{ color: '#fff' }}>
+                行业应用1
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/resolutions" style={{ color: '#fff' }}>
+                行业应用2
+              </Link>
+            </li>
           </ul>
         </div>
         <div className={st.list}>
           <div className={st.title}>技术支持</div>
           <ul className={st.item}>
-            <li>开发者中心</li>
-            <li>技术协议</li>
+            <li>
+              <Link to="/main/other2" style={{ color: '#fff' }}>
+                开发者中心
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/other2" style={{ color: '#fff' }}>
+                技术协议
+              </Link>
+            </li>
           </ul>
         </div>
         <div className={st.list}>
           <div className={st.title}>商务合作</div>
           <ul className={st.item}>
-            <li>技术咨询</li>
-            <li>应用案例</li>
-            <li>资源合作</li>
+            <li>
+              <Link to="/main/help" style={{ color: '#fff' }}>
+                技术咨询
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/help" style={{ color: '#fff' }}>
+                应用案例
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/help" style={{ color: '#fff' }}>
+                资源合作
+              </Link>
+            </li>
           </ul>
         </div>
         <div className={st.list}>
           <div className={st.title}>关于THESEUS</div>
           <ul className={st.item}>
-            <li>企业文化</li>
-            <li>发展规划</li>
-            <li>信息资讯</li>
-            <li>加入我们</li>
+            <li>
+              <Link to="/main/joinus" style={{ color: '#fff' }}>
+                企业文化
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/strategy" style={{ color: '#fff' }}>
+                发展规划
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/news" style={{ color: '#fff' }}>
+                信息资讯
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/joinus" style={{ color: '#fff' }}>
+                加入我们
+              </Link>
+            </li>
           </ul>
         </div>
         <div

@@ -29,6 +29,7 @@ const Banner: React.FC<IProps> = (props) => {
                         autoPlay={true}
                         loop={true}
                         muted={true}
+                        style={{ width: '100%' }}
                       />
                     ) : (
                       <img
